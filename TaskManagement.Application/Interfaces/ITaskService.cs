@@ -5,10 +5,10 @@ using TaskManagement.Domain.Enums;
 
 public interface ITaskService
 {
-    Task<TaskDto> CreateTaskAsync(TaskDto taskDto, guid creatorId);
-    Task<TaskDto> UpdateTaskAsync(int id, TaskDto taskDto, guid userId);
-    Task DeleteTaskAsync(guid id, guid userId);
-    Task<IEnumerable<TaskDto>> GetTasksAsync(TaskStatus? status, guid? assigneeId);
-    Task<TaskDto> GetTaskByIdAsync(guid id);
+    Task<TaskDto> CreateTaskAsync(TaskDto taskDto, Guid creatorId);
+    Task<TaskDto> UpdateTaskAsync(int id, TaskDto taskDto, Guid userId);
+    Task DeleteTaskAsync(Guid id, Guid userId);
+    Task<IEnumerable<TaskDto>> GetTasksAsync(TaskStatus? status, Guid? assigneeId);
+    Task<TaskDto> GetTaskByIdAsync(Guid id);
     Task<IEnumerable<UserDto>> GetUsersForAssignmentAsync();
 }

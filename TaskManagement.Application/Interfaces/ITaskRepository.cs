@@ -1,12 +1,13 @@
 namespace TaskManagement.Application.Interfaces;
 
 using TaskManagement.Domain.Entities;
+using TaskManagement.Domain.Enums;
 
 public interface ITaskRepository
 {
-    Task<Task> GetTaskByIdAsync(guid id);
-    Task<IEnumerable<Task>> GetTasksAsync(TaskStatus? status, guid? assigneeId);
-    Task<Task> AddTaskAsync(Task task);
-    Task<Task> UpdateTaskAsync(Task task);
-    Task DeleteTaskAsync(Task task);
+    Task<UserTask> GetTaskByIdAsync(Guid id);
+    Task<IEnumerable<UserTask>> GetTasksAsync(TaskStatus? status, Guid? assigneeId);
+    Task<UserTask> AddTaskAsync(UserTask task);
+    Task<UserTask> UpdateTaskAsync(UserTask task);
+    Task DeleteTaskAsync(UserTask task);
 }
