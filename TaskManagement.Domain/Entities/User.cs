@@ -1,0 +1,20 @@
+namespace TaskManagement.Domain.Entities;
+
+using System.ComponentModel.DataAnnotations;
+
+public class User
+{
+    public guid Id { get; set; }
+    [Required]
+    public string Username { get; set; }
+    [Required]
+    public string Email { get; set; }
+    [Required]
+    public string PasswordHash { get; set; }
+    public UserRole Role { get; set; } = UserRole.User;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    // we will need this model to be able to return assigned and created tasks per user 
+    public ICollection<Task> AssignedTasks { get; set; }
+    public ICollection<Task> CreatedTasks { get; set; }
+}
