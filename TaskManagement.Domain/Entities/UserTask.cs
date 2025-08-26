@@ -9,7 +9,7 @@ public class UserTask
     [Required]
     public string Title { get; set; }
     public string Description { get; set; }
-    public TaskStatus Status { get; set; } = TaskStatus.TODO;
+    public UserTaskStatus Status { get; set; } = UserTaskStatus.TODO;
     public int Priority { get; set; }
     public Guid? AssignedTo { get; set; }
     public Guid CreatedBy { get; set; }

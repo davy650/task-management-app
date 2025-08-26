@@ -6,7 +6,7 @@ using TaskManagement.Domain.Enums;
 public interface ITaskRepository
 {
     Task<UserTask> GetTaskByIdAsync(Guid id);
-    Task<IEnumerable<UserTask>> GetTasksAsync(TaskStatus? status, Guid? assigneeId);
+    Task<IEnumerable<UserTask>> GetTasksAsync(UserTaskStatus? status, Guid? assigneeId);
     Task<UserTask> AddTaskAsync(UserTask task);
     Task<UserTask> UpdateTaskAsync(UserTask task);
     Task DeleteTaskAsync(UserTask task);

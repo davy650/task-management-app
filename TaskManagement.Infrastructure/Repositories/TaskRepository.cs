@@ -8,9 +8,9 @@ using TaskManagement.Infrastructure.DataContext;
 
 public class TaskRepository : ITaskRepository
 {
-    private readonly AppDbContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public TaskRepository(AppDbContext context)
+    public TaskRepository(ApplicationDbContext context)
     {
         _context = context;
     }
@@ -33,7 +33,7 @@ public class TaskRepository : ITaskRepository
         return await _context.Tasks.FirstOrDefaultAsync(t => t.Id == id);
     }
 
-    public async Task<IEnumerable<UserTask>> GetTasksAsync(TaskStatus? status, Guid? assigneeId)
+    public async Task<IEnumerable<UserTask>> GetTasksAsync(UserTaskStatus? status, Guid? assigneeId)
     {
         IQueryable<UserTask> query = _context.Tasks;
 

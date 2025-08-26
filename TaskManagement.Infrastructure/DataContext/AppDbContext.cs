@@ -3,9 +3,9 @@ namespace TaskManagement.Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.Domain.Entities;
 
-public class AppDbContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     public DbSet<User> Users { get; set; }
     public DbSet<UserTask> Tasks { get; set; }
