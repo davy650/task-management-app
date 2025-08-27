@@ -56,7 +56,6 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet("users")]
-    [Authorize(Roles = "Admin")] // Example of role-based authorization
     public async Task<IActionResult> GetUsersForAssignment()
     {
         var users = await _taskService.GetUsersForAssignmentAsync();
