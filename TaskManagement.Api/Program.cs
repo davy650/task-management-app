@@ -1,8 +1,10 @@
+using AutoMapper;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using TaskManagement.Application.Interfaces;
+using TaskManagement.Application.Services;
 using TaskManagement.Infrastructure.DataContext;
 using TaskManagement.Infrastructure.Repositories;
 
@@ -24,7 +26,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(o => o.UseNpgsql(connectionS
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddAutoMapper(typeof(TaskManagement.Application.MappingProfile));
+builder.Services.AddHttpContextAccessor();
 
 var jwtConfigs = builder.Configuration.GetSection("JwtConfigs");
 var jwtKey = jwtConfigs["Key"];
